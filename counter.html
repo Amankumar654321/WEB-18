@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter_button</title>\
+
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+var H1 = document.createElement("h1");
+var butn1 = document.createElement("button");
+var butn2 = document.createElement("button");
+var count = localStorage.getItem("counter") || 0;
+H1.innerText = count;
+
+butn1.innerText = "Increase";
+butn2.innerText = "Decrease";
+
+document.querySelector("body").append(H1, butn1, butn2);
+
+butn1.addEventListener("click", myIncrFun);
+butn2.addEventListener("click", myDecFun);
+
+function myIncrFun(){
+count++;
+H1.innerText = count;
+localStorage.setItem("counter", count);
+
+}
+function myDecFun(){
+    
+    count--;
+    H1.innerText = count;
+    localStorage.setItem("counter", count);
+}
+
+
+
+
+
+
+</script>
+
