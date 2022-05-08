@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login_page</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+
+    Enter email: <input id="email" type="email" placeholder="enter your email"/>
+    <br><br>
+    Enter password : <input id = password type="password" placeholder="Enter your password"/>
+    <br>
+    <br>
+<button id="butn1">Login</button>
+</body>
+</html>
+<script>
+var getData =JSON.parse(localStorage.getItem("Userdata"));
+
+document.querySelector("#butn1").addEventListener("click", myLoginFun);
+
+function myLoginFun(){
+var enteredemail = document.querySelector("#email").value;
+var enteredpass = +document.querySelector("#password").value;
+
+getData.map(function(ele){
+if(ele.Name === enteredemail && +ele.Pass === +enteredpass){
+    alert("Login Sucessful");
+}
+else{
+    alert("Invalid email and password");
+}
+
+});
+}
+</script>

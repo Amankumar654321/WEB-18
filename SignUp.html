@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp_page</title>
+</head>
+<body>
+
+<h1>Sign Up page</h1>
+
+Enter email: <input id="email" type="email" placeholder="enter your email"/>
+<br><br>
+Enter phone number : <input id="number" type="number" placeholder="Enter your number"/>
+<br><br>
+Enter password : <input id = password type="password" placeholder="Enter your password"/>
+<br>
+<br>
+<button id="butn1">SignUp</button>
+</body>
+</html>
+<script>
+document.querySelector("#butn1").addEventListener("click", mySignupFun);
+
+function mySignupFun(){
+var email = document.querySelector("#email").value;
+var number = document.querySelector("#number").value;
+var pass = document.querySelector("#password").value;
+if(email !== "" && number !== "" && pass !== ""){
+    var dataArr = [];
+var dataObj = {
+Name: email,
+Num : number,
+Pass : pass
+};
+dataArr.push(dataObj);
+
+localStorage.setItem("Userdata", JSON.stringify(dataArr));
+alert("Signup Sucessful");
+window.location.href = "Login.html";
+}
+else{
+    alert("Enter valid value");
+}
+
+}
+
+
+
+
+
+
+
+
+
+</script>
