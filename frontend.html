@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontned</title>
+<style>
+table{
+    width: auto;
+    height: auto;
+    background-color: rgb(202, 234, 202);
+    margin: auto;
+    
+}
+img{
+    height: 120px;
+    width: 100%;
+}
+thead>tr>td{
+    font-size: 30px;
+    font-weight: bold
+}
+tbody>tr>td{
+    font-size: 20px;
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <h1>Frontned</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Image</td>
+                <td>Name</td>
+                <td>Logo</td>
+                <td>Role</td>
+                <td>DELETE</td>
+            </tr>   
+        </thead>
+        <tbody>
+            <tr>
+                
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>
+<script>
+
+
+
+ var getData = JSON.parse(localStorage.getItem("info")) || [];
+ getData.map(function(ele){
+    var tr = document.createElement("tr");
+var td1 = document.createElement("td");
+var td2 = document.createElement("td");
+var td5 = document.createElement("td");
+td5.innerText = "Delete"
+td5.style.backgroundColor = "red";
+td5.style.color = "white";
+var td3 = document.createElement("td");
+var td4 = document.createElement("td");
+var img1 = document.createElement("img");
+var img2 = document.createElement("img");
+td1.append(img1);
+td3.append(img2);
+document.querySelector("tbody").append(tr);
+tr.append(td1, td2, td3, td4, td5);
+    img1.src = ele.Image;
+    img2.src = ele.Logo;
+    td2.innerText = ele.Name;
+    td4.innerText = ele.Role;
+    td5.addEventListener("click", myDeletfun);
+ });
+ function myDeletfun(){
+     event.target.parentNode.remove();
+ }
+ 
+
+
+
+</script>
